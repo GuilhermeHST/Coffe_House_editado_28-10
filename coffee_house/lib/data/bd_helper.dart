@@ -18,7 +18,7 @@ class DBHelper {
   }
 
   onCreate(Database db, int version) async{
-    String sql = 'CREATE TABLE package (id INTEGER PRIMARY KEY, cafe_image varchar(100), title varchar(100), price double;';
+    String sql = 'CREATE TABLE package (id INTEGER PRIMARY KEY, cafe_image varchar(100), title varchar(100), price double);';
     await db.execute(sql);
 
     sql = "INSERT INTO package (id, cafe_image, title, price) VALUES (1, 'https://www.anamariabrogui.com.br/assets/uploads/receitas/fotos/usuario-3235-18a45e40b548a7ecbb5448c6c891a55f.jpg', 'Cappucino', '10');";
@@ -40,6 +40,15 @@ class DBHelper {
     await db.execute(sql);
 
     sql = "INSERT INTO user (username, password) VALUES ('guilherme@gmail.com', '12345678')";
+    await db.execute(sql);
+    
+    sql = 'CREATE TABLE polly (id INTEGER PRIMARY KEY, foto varchar(100), nome varchar(1000), aux vachar(100), volume varchar(100), preco varchar(100), ingrediente varchar(100));'
+    await db.execute(sql);
+    
+    sql = "INSERT INTO polly (id, foto, nome, aux, volume, preco, ingrediente) VALUES (1, 'https://www.supremoarabica.com.br/wp-content/uploads/2019/04/10-curisoidades-sobre-o-caf%C3%A9.jpg', 'café', 'tradicional', '150', '8', 'café extraforte com açucar');"
+    await db.execute(sql);
+    
+    sql = "INSERT INTO polly (id, foto, nome, aux, volume, preco, ingrediente) VALUES (2, 'https://www.supremoarabica.com.br/wp-content/uploads/2019/04/10-curisoidades-sobre-o-caf%C3%A9.jpg', 'café', 'tradicional', '150', '8', 'café extraforte com açucar');"
     await db.execute(sql);
   }
 

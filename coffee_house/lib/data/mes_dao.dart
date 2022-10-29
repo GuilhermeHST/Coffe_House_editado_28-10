@@ -2,7 +2,7 @@ import 'package:coffee_house/data/bd_helper.dart';
 import 'package:coffee_house/domain/cafe.dart';
 import 'package:sqflite/sqflite.dart';
 
-class PollyDao{
+class MesDao{
   Future<List<Cafes>> listarCafes() async{
     DBHelper dbHelper = DBHelper();
     Database db = await dbHelper.initDB();

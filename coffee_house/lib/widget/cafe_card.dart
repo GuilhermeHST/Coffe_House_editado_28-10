@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'cafe.dart';
+import '/domain/polly.dart';
 
 class CafeCard extends StatefulWidget {
   final Polly polly;

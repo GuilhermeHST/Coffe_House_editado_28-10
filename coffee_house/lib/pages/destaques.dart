@@ -41,7 +41,7 @@ class _DestaquesPageState extends State<DestaquesPage> {
                 buildListViewBuilder(lista),
                 buildSizedBox(),
                 buildHeadCards('Café do Mês'),
-                CafeDoMes(cafeDoMes: lista[4]),
+                buildCafeDoMes(),
                 buildSizedBox(),
                 buildHeadCards('Localização'),
                 Localizacao(),
@@ -50,6 +50,30 @@ class _DestaquesPageState extends State<DestaquesPage> {
           }
 
           return const Center(child: CircularProgressIndicator());
+        },
+      ),
+    );
+  }
+  
+  buildCafeDoMes(){
+     return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FutureBuilder<List<Cafes>>(
+        future: MesDao().listarCafes(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List<Cafes> lista = snapshot.data ?? [];
+
+            return ListView.builder(
+              children: [
+                shrinkWrap: true,
+                  itemCount: listaCafes.length,
+                  itemBuilder: ((context, index){
+                    return  CafeDoMes(cafeDoMes: listaCafes[index]);
+                  }),
+              ],
+            );
+          }
         },
       ),
     );

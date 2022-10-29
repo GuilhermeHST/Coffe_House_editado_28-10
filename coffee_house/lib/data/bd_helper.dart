@@ -32,14 +32,19 @@ class DBHelper {
     "INSERT INTO package (id, cafe_image, title, price) VALUES (3, 'https://1.bp.blogspot.com/-sSKibBwIWnQ/X95hxqpp32I/AAAAAAAAAV0/CnNPT19fmaUkOkdsyJwPyWOjxIzzguKygCLcBGAsYHQ/s650/xicara%2Bde%2Bcaf%25C3%25A9%2Bexpresso.png', 'Cappucino', '10');";
     await db.execute(sql);
 
-    sql =
+    /*sql =
     "INSERT INTO package (id, cafe_image, title, price) VALUES (4, 'https://images.rappi.com.br/products/2115867614-1646157425961.jpg', 'Latte', '25');";
+    await db.execute(sql);*/
+    
+    sql = "CREATE TABLE mes (id INTEGER PRIMARY KEY, image varchar(100), name varchar(100), price double);";
     await db.execute(sql);
+    
+    sql = "INSERT INTO mes (id, image, name, price) VALUES (1, 'https://images.rappi.com.br/products/2115867614-1646157425961.jpg', 'Latte', '25');";
 
     sql = "CREATE TABLE user (username varchar(100) PRIMARY KEY, password varchar(100))";
     await db.execute(sql);
 
-    sql = "INSERT INTO user (username, password) VALUES ('guilherme@gmail.com', '12345678')";
+    sql = "INSERT INTO user (username, password) VALUES ('guilherme@gmail.com', '12345678');";
     await db.execute(sql);
     
     sql = 'CREATE TABLE polly (id INTEGER PRIMARY KEY, foto varchar(100), nome varchar(1000), aux vachar(100), volume varchar(100), preco varchar(100), ingrediente varchar(100));'
